@@ -2,9 +2,9 @@ import fetch from 'node-fetch';
 import notifier from 'node-notifier';
 import open from 'open';
 
-const date = '2021-08-27';
-const time = '17:00';
-const endTime = '19:00';
+const date = '2021-09-29';
+const time = '19:00';
+const endTime = '21:00';
 
 function toRetardedDate(goodDate: string): string {
     const [year, month, day] = goodDate.split('-');
@@ -15,7 +15,7 @@ const url = new URL('https://www.sevenrooms.com/api-yoa/availability/widget/rang
 const targetUrl = 'https://ascendprime.com/';
 url.searchParams.set('venue', 'ascendprime');
 url.searchParams.set('time_slot', time);
-url.searchParams.set('party_size', '2');
+url.searchParams.set('party_size', '3');
 url.searchParams.set('start_date', toRetardedDate(date));
 url.searchParams.set('num_days', '1');
 url.searchParams.set('channel', 'SEVENROOMS_WIDGET');
@@ -78,5 +78,5 @@ async function run() {
 
 setInterval(async () => {
     run();
-}, 3 * 60 * 1000);
+}, 2 * 60 * 1000);
 run();
